@@ -2,7 +2,7 @@ require 'rails_helper'
 
 RSpec.describe 'flights show page', type: :feature do
   before :each do
-    @flight = Flight.create!(number: 1727, date: '08/03/20', departure_city: 'Denver', arrival_city: 'Phoenix')
+    @flight = Flight.create!(number: 1727, date: '08/03/20', departure_city: 'Denver', arrival_city: 'Phoenix', time: '5:00 PM')
     @passenger1 = Passenger.create!(name: 'Andrew', age: '29')
     @passenger2 = Passenger.create!(name: 'Khoa', age: '34')
     @passenger3 = Passenger.create!(name: 'Janis', age: '25')
@@ -20,6 +20,7 @@ RSpec.describe 'flights show page', type: :feature do
 
     expect(page).to have_content("Flight ##{@flight.number}")
     expect(page).to have_content("Date: #{@flight.date}")
+    expect(page).to have_content("Time: #{@flight.time}")
     expect(page).to have_content("Departure: #{@flight.departure_city}")
     expect(page).to have_content("Arrival: #{@flight.arrival_city}")
   end

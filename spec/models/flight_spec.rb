@@ -7,9 +7,9 @@ RSpec.describe Flight, type: :model do
   end
 
   before :each do
-    @flight = Flight.create!(number: 1727, date: '08/03/20', departure_city: 'Denver', arrival_city: 'Phoenix')
-    @flight2 = Flight.create!(number: 1745, date: '06/22/20', departure_city: 'Atlanta', arrival_city: 'New York')
-    @flight3 = Flight.create!(number: 1631, date: '09/30/20', departure_city: 'Phoenix', arrival_city: 'Los Angeles')
+    @flight = Flight.create!(number: 1727, date: '08/03/20', departure_city: 'Denver', arrival_city: 'Phoenix', time: '5:00 PM')
+    @flight2 = Flight.create!(number: 1745, date: '06/22/20', departure_city: 'Atlanta', arrival_city: 'New York', time: '2:00 PM')
+    @flight3 = Flight.create!(number: 1631, date: '09/30/20', departure_city: 'Phoenix', arrival_city: 'Los Angeles', time: '7:00 AM')
     @passenger1 = Passenger.create!(name: 'Andrew', age: '29')
     @passenger2 = Passenger.create!(name: 'Khoa', age: '34')
     @passenger3 = Passenger.create!(name: 'Janis', age: '25')
