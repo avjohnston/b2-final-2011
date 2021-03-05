@@ -11,6 +11,10 @@ RSpec.describe 'flights index page', type: :feature do
     @passenger4 = Passenger.create!(name: 'Penny', age: '5')
     @passenger5 = Passenger.create!(name: 'Norm', age: '3')
     @passenger6 = Passenger.create!(name: 'Jake', age: '5')
+    @passenger7 = Passenger.create!(name: 'Doug', age: '18')
+    @passenger8 = Passenger.create!(name: 'Nina', age: '55')
+    FlightPassenger.create!(flight: @flight2, passenger: @passenger7)
+    FlightPassenger.create!(flight: @flight2, passenger: @passenger8)
     FlightPassenger.create!(flight: @flight, passenger: @passenger1)
     FlightPassenger.create!(flight: @flight, passenger: @passenger2)
     FlightPassenger.create!(flight: @flight, passenger: @passenger6)
@@ -29,6 +33,12 @@ RSpec.describe 'flights index page', type: :feature do
       expect(page).to have_content("Date: #{@flight.date}")
       expect(page).to have_content("Departure: #{@flight.departure_city}")
       expect(page).to have_content("Arrival: #{@flight.arrival_city}")
+    end
+    within "#flight-#{@flight2.id}" do
+      expect(page).to have_content("Number: #{@flight2.number}")
+      expect(page).to have_content("Date: #{@flight2.date}")
+      expect(page).to have_content("Departure: #{@flight2.departure_city}")
+      expect(page).to have_content("Arrival: #{@flight2.arrival_city}")
     end
 
     within "#flight-#{@flight3.id}" do
@@ -56,10 +66,11 @@ RSpec.describe 'flights index page', type: :feature do
 
     it 'flights are ordered by number of passengers and then alphabetically' do
       visit flights_path
-      
-      expect(flight).to appear_before(flight2)
+
+      expect(flight2).to appear_before(flight)
+      expect(flight2).to appear_before(flight3)
+      expect(flight2).to appear_before(flight)
       expect(flight).to appear_before(flight3)
-      expect(flight3).to appear_before(flight2)
     end
   end
 end

@@ -2,9 +2,9 @@ class Flight < ApplicationRecord
   has_many :flight_passengers
   has_many :passengers, through: :flight_passengers
 
-  def self.alph_order
-    order(:departure_city)
-  end
+  # def self.alph_order
+  #   order(:departure_city)
+  # end
 
   def self.order_by_passengers
     joins(:flight_passengers)
