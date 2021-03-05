@@ -64,7 +64,7 @@ RSpec.describe 'flights index page', type: :feature do
     let(:flight2) { "#{@flight2.number}" }
     let(:flight3) { "#{@flight3.number}" }
 
-    it 'flights are ordered by number of passengers and then alphabetically' do
+    it 'flights are ordered by number of passengers first and then alphabetically' do
       visit flights_path
 
       expect(flight2).to appear_before(flight)

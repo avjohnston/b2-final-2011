@@ -31,6 +31,10 @@ RSpec.describe 'flights show page', type: :feature do
       expect(page).to have_content("* #{@passenger1.name}")
     end
 
+    within "#passenger-#{@passenger2.id}" do
+      expect(page).to have_content("* #{@passenger2.name}")
+    end
+
     within "#passenger-#{@passenger3.id}" do
       expect(page).to have_content("* #{@passenger3.name}")
     end
@@ -52,6 +56,10 @@ RSpec.describe 'flights show page', type: :feature do
       expect(page).to have_button("Remove Passenger")
     end
 
+    within "#passenger-#{@passenger2.id}" do
+      expect(page).to have_button("Remove Passenger")
+    end
+
     within "#passenger-#{@passenger3.id}" do
       expect(page).to have_button("Remove Passenger")
     end
@@ -66,6 +74,13 @@ RSpec.describe 'flights show page', type: :feature do
 
     expect(current_path).to eq(flight_path(@flight))
     expect(page).to_not have_content("* #{@passenger1.name}")
+
+    within "#passenger-#{@passenger2.id}" do
+      click_on "Remove Passenger"
+    end
+
+    expect(current_path).to eq(flight_path(@flight))
+    expect(page).to_not have_content("* #{@passenger2.name}")
   end
 
 end
