@@ -14,7 +14,7 @@ class Flight < ApplicationRecord
   end
 
   def adult_passengers
-    passengers.where('age > ?', '17')
+    passengers.where('age >= ?', '18')
   end
 
   def passengers_average_age
