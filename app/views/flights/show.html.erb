@@ -4,9 +4,9 @@
 * Arrival: <%= @flight.arrival_city %><br><br>
 
 <h3>Passengers:</h3>
-  <% @passengers.each do |pass| %>
-  <section id="passenger-<%= pass.id %>">
-    * <%= pass.name %><br>
+  <% @passengers.each do |passenger| %>
+  <section id="passenger-<%= passenger.id %>">
+    * <%= passenger.name %> <%= button_to 'Remove Passenger', flight_passenger_path, method: :delete, params: {passenger_id: passenger.id} %><br>
   </section>
 <% end %>
 

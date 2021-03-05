@@ -6,6 +6,13 @@ class Flight < ApplicationRecord
     order(:departure_city)
   end
 
+  def self.order_by_passengers
+    joins(:flight_passengers)
+    .select('flights.*, count(flight_passengers.passenger_id) as passenger_count')
+    .group('flights.id')
+    .order('passenger_count desc, flights.departure_city')
+  end
+
   def adult_passengers
     passengers.where('age > ?', '17')
   end

@@ -3,7 +3,7 @@
 <h3>Flights:</h3>
 <% @flights.each do |flight| %>
   <section id="flight-<%= flight.id %>">
-    Number: <%= flight.number %><br>
+    Number: <%= link_to "#{flight.number}", flight_path(flight) %><br>
     Date: <%= flight.date %><br>
     Departure: <%= flight.departure_city %><br>
     Arrival: <%= flight.arrival_city %><br><br>

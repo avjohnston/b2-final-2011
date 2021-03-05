@@ -1,6 +1,6 @@
 class FlightsController < ApplicationController
   def index
-    @flights = Flight.alph_order
+    @flights = Flight.order_by_passengers
   end
 
   def show
