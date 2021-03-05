@@ -1,9 +1,9 @@
 <h1>Flight Index</h1>
 
-<h3>Flights:</h3>
+<h2>Flights:</h2>
 <% @flights.each do |flight| %>
   <section id="flight-<%= flight.id %>">
-    Number: <%= link_to "#{flight.number}", flight_path(flight) %><br>
+    <h3>Number: <%= link_to "#{flight.number}", flight_path(flight) %></h3>
     Passengers: <%= flight.passenger_count %><br>
     Date: <%= flight.date %><br>
     Departure: <%= flight.departure_city %><br>
