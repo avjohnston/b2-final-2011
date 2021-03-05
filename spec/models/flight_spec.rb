@@ -26,7 +26,7 @@ RSpec.describe Flight, type: :model do
   end
 
   describe 'class methods' do
-    it '#aplh_order' do
+    it '#alph_order' do
       # expect(Flight.alph_order).to eq([@flight2, @flight, @flight3])
     end
 

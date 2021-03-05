@@ -13,8 +13,10 @@ RSpec.describe FlightPassenger, type: :model do
   end
 
   describe 'class methods' do
-    it '#self_find' do
-      expect(FlightPassenger.self_find(@flight.id, @passenger.id)).to eq(@flight_passenger)
+    it '#destroy' do
+      FlightPassenger.delete(@flight.id, @passenger.id)
+
+      expect(FlightPassenger.count).to eq(0)
     end
   end
 end

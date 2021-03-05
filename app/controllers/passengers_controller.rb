@@ -1,3 +1,0 @@
-class PassengersController < ApplicationController
-
-end 
