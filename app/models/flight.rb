@@ -7,10 +7,16 @@ class Flight < ApplicationRecord
   # end
 
   def self.order_by_passengers
-    joins(:flight_passengers)
-    .select('flights.*, count(flight_passengers.passenger_id) as passenger_count')
-    .group('flights.id')
-    .order('passenger_count desc, flights.departure_city')
+    # found two ways to do it and didn't know which was better
+
+    # joins(:flight_passengers)
+    # .select('flights.*, count(flight_passengers.passenger_id) as passenger_count')
+    # .group('flights.id')
+    # .order('passenger_count desc, flights.departure_city')
+    
+    joins(:passengers)
+    .group(:id)
+    .order("passengers.count DESC, flights.departure_city")
   end
 
   def adult_passengers
