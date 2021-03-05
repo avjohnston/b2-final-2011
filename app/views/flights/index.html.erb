@@ -4,8 +4,10 @@
 <% @flights.each do |flight| %>
   <section id="flight-<%= flight.id %>">
     Number: <%= link_to "#{flight.number}", flight_path(flight) %><br>
+    Passengers: <%= flight.passenger_count %><br>
     Date: <%= flight.date %><br>
     Departure: <%= flight.departure_city %><br>
     Arrival: <%= flight.arrival_city %><br><br>
+    <br>
   </section>
 <% end %>

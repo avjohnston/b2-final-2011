@@ -20,4 +20,8 @@ class Flight < ApplicationRecord
   def passengers_average_age
     adult_passengers.average(:age)
   end
+
+  def passenger_count
+    passengers.size
+  end
 end

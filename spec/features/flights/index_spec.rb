@@ -33,12 +33,14 @@ RSpec.describe 'flights index page', type: :feature do
       expect(page).to have_content("Date: #{@flight.date}")
       expect(page).to have_content("Departure: #{@flight.departure_city}")
       expect(page).to have_content("Arrival: #{@flight.arrival_city}")
+      expect(page).to have_content("Passengers: #{@flight.passenger_count}")
     end
     within "#flight-#{@flight2.id}" do
       expect(page).to have_content("Number: #{@flight2.number}")
       expect(page).to have_content("Date: #{@flight2.date}")
       expect(page).to have_content("Departure: #{@flight2.departure_city}")
       expect(page).to have_content("Arrival: #{@flight2.arrival_city}")
+      expect(page).to have_content("Passengers: #{@flight2.passenger_count}")
     end
 
     within "#flight-#{@flight3.id}" do
@@ -46,6 +48,7 @@ RSpec.describe 'flights index page', type: :feature do
       expect(page).to have_content("Date: #{@flight3.date}")
       expect(page).to have_content("Departure: #{@flight3.departure_city}")
       expect(page).to have_content("Arrival: #{@flight3.arrival_city}")
+      expect(page).to have_content("Passengers: #{@flight3.passenger_count}")
     end
   end
 
